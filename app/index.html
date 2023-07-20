@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="hello.js"></script>
+    <script>
+      Module.onRuntimeInitialized = function() {
+        const sayHello = Module.cwrap('sayHello', 'string', []);
+        // append a h1 to body
+        const h1 = document.createElement('h1');
+        h1.textContent = sayHello();
+        document.body.appendChild(h1);
+      }
+    </script>
+  </head>
+  <body>
+  </body>
+</html>
