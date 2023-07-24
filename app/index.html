@@ -3,15 +3,23 @@
   <head>
     <script src="hello.js"></script>
     <script>
+      let onck;
       Module.onRuntimeInitialized = function() {
         const sayHello = Module.cwrap('sayHello', 'string', []);
         // append a h1 to body
         const h1 = document.createElement('h1');
         h1.textContent = sayHello();
         document.body.appendChild(h1);
+
+        onck = () => {
+          const h1 = document.createElement('h1');
+          h1.textContent = sayHello();
+          document.body.appendChild(h1);
+        }
       }
     </script>
   </head>
   <body>
+    <button  onclick="onck();">Click me</button>
   </body>
 </html>
