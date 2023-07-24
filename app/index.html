@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <script src="hello.js"></script>
+    <script src="vector.js"></script>
     <script>
-      let onck;
       Module.onRuntimeInitialized = function() {
-        const sayHello = Module.cwrap('sayHello', 'string', []);
-        // append a h1 to body
-        const h1 = document.createElement('h1');
-        h1.textContent = sayHello();
-        document.body.appendChild(h1);
-
-        onck = () => {
-          const h1 = document.createElement('h1');
-          h1.textContent = sayHello();
-          document.body.appendChild(h1);
-        }
+        let v1 = new Module.Vector(1, 2);
+        let v2 = new Module.Vector(2, 3);
+        let v3 = v1.add(v2);
+        console.log(`v3.x = ${v3.x}, v3.y = ${v3.y}`);
       }
     </script>
   </head>
   <body>
-    <button  onclick="onck();">Click me</button>
+    <p>Check console</p>
   </body>
 </html>
